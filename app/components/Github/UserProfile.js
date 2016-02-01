@@ -1,21 +1,7 @@
-var React = require('react')
+import React from 'react'
 
-var UserProfile = React.createClass({
-  propTypes: {
-    username: React.PropTypes.string.isRequired,
-    bio: React.PropTypes.object.isRequired
-  },
-  upperCase: function(str){ return str[0].toUpperCase() + str.slice(1) },
-  maybeKeyToListItem: function (key) { // seemed like a good idea at the time but img src vs href is tricky to guess at…
-    if(this.props.bio[key] && typeof this.props.bio[key].match === 'function' && this.props.bio[key].match(/^https/)){
-      return (<li className="list-group-item" key={key}><img src={this.props.bio[key]} /></li>)
-    } else if (this.props.bio[key] && typeof this.props.bio[key].match === 'function' && this.props.bio[key].match(/.+@.+\..+/)) {
-      return (this.props.bio[key] && <li className="list-group-item" key={key}>{this.upperCase(key)}: <a href="mailto:{this.props.bio[key]}">{this.props.bio[key]}</a></li>)
-    } else {
-      return (this.props.bio[key] && <li className="list-group-item" key={key}>{this.upperCase(key)}: {this.props.bio[key]}</li>)
-    }
-  },
-  render: function(){
+class UserProfile extends React.Component {
+  render(){
     return (
       <div>
         {this.props.bio.avatar_url && <li className="list-group-item"><img src={this.props.bio.avatar_url} className="img-rounded img-responsive" /></li>}
@@ -31,6 +17,11 @@ var UserProfile = React.createClass({
       </div>
     )
   }
-})
+}
 
-module.exports = UserProfile
+UserProfile.propTypes = {
+  username: React.PropTypes.string.isRequired,
+  bio: React.PropTypes.object.isRequired
+}
+
+export default UserProfile
