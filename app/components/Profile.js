@@ -24,6 +24,12 @@ var Profile = React.createClass({
   componentWillMount: function(){
     // this.unbind('notes') // removes listener; from ReactFireMixin
   },
+  handleAddNote: function(newNote){ // modify state where state is kept
+    // update firebase w new note
+    var relativePath = this.props.params.username
+    var key = this.state.notes.length
+    this.ref.child(relativePath).child(key).set(newNote)
+  },
   render: function(){
     return (
       <div className="row">
@@ -34,7 +40,7 @@ var Profile = React.createClass({
           <Repos username={this.props.params.username} repos={this.state.repos}/>
         </div>
         <div className="col-md-4">
-          <Notes username={this.props.params.username} notes={this.state.notes} />
+          <Notes username={this.props.params.username} notes={this.state.notes} addNote={this.handleAddNote} />
         </div>
       </div>
     )
