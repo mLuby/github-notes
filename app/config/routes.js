@@ -5,8 +5,8 @@ import Profile from '../components/Profile'
 import {Route, IndexRoute} from 'react-router'
 
 export default (
-    <Route path="/" component={Main}>
-      <Route path="profile/:username" component={Profile} />
-      <IndexRoute component={Home} />
-    </Route>
+  <Route path="/" component={Main}>
+    <Route path="profile/:username" component={Profile} />
+    <IndexRoute component={Home} />
+  </Route>
 )

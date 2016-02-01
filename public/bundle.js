@@ -63,9 +63,9 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	_reactDom2.default.render(_react2.default.createElement(
-	    _reactRouter.Router,
-	    null,
-	    _routes2.default
+	  _reactRouter.Router,
+	  null,
+	  _routes2.default
 	), document.getElementById('app'));
 
 /***/ },
@@ -24170,8 +24170,6 @@
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
@@ -24186,47 +24184,33 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Main = function (_React$Component) {
-	  _inherits(Main, _React$Component);
-
-	  function Main() {
-	    _classCallCheck(this, Main);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Main).apply(this, arguments));
-	  }
-
-	  _createClass(Main, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
+	var Main = function Main(_ref) {
+	  var history = _ref.history;
+	  var children = _ref.children;
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'main-container' },
+	    _react2.default.createElement(
+	      'nav',
+	      { className: 'navbar navbar-default', role: 'navigation' },
+	      _react2.default.createElement(
 	        'div',
-	        { className: 'main-container' },
-	        _react2.default.createElement(
-	          'nav',
-	          { className: 'navbar navbar-default', role: 'navigation' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'col-sm-7 col-sm-offset-2', style: { marginTop: 15 } },
-	            _react2.default.createElement(_SearchGithub2.default, { history: this.props.history })
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'container' },
-	          this.props.children
-	        )
-	      );
-	    }
-	  }]);
+	        { className: 'col-sm-7 col-sm-offset-2', style: { marginTop: 15 } },
+	        _react2.default.createElement(_SearchGithub2.default, { history: history })
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'container' },
+	      children
+	    )
+	  );
+	};
 
-	  return Main;
-	}(_react2.default.Component);
+	Main.PropTypes = {
+	  history: _react2.default.PropTypes.object.isRequired, // TODO these seem to have no impact.
+	  children: _react2.default.PropTypes.object.isRequired
+	};
 
 	exports.default = Main;
 
@@ -24328,8 +24312,6 @@
 
 	"use strict";
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
@@ -24340,36 +24322,13 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Home = function (_React$Component) {
-	  _inherits(Home, _React$Component);
-
-	  function Home() {
-	    _classCallCheck(this, Home);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Home).apply(this, arguments));
-	  }
-
-	  _createClass(Home, [{
-	    key: "render",
-	    value: function render() {
-	      return _react2.default.createElement(
-	        "h2",
-	        { className: "text-center" },
-	        "Search by Github Username Above"
-	      );
-	    }
-	  }]);
-
-	  return Home;
-	}(_react2.default.Component);
-
-	exports.default = Home;
+	exports.default = function () {
+	  return _react2.default.createElement(
+	    "h2",
+	    { className: "text-center" },
+	    "Search by Github Username Above"
+	  );
+	};
 
 /***/ },
 /* 212 */
@@ -24517,8 +24476,6 @@
 
 	"use strict";
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
@@ -24529,25 +24486,19 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Repos = function (_React$Component) {
-	  _inherits(Repos, _React$Component);
-
-	  function Repos() {
-	    _classCallCheck(this, Repos);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Repos).apply(this, arguments));
-	  }
-
-	  _createClass(Repos, [{
-	    key: "render",
-	    value: function render() {
-	      var repos = this.props.repos.map(function (repo, index) {
+	var Repos = function Repos(props) {
+	  return _react2.default.createElement(
+	    "div",
+	    null,
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "REPOS"
+	    ),
+	    _react2.default.createElement(
+	      "ul",
+	      { className: "list-group" },
+	      props.repos.map(function (repo, index) {
 	        return _react2.default.createElement(
 	          "li",
 	          { className: "list-group-item", key: index },
@@ -24566,26 +24517,10 @@
 	            repo.description
 	          )
 	        );
-	      });
-	      return _react2.default.createElement(
-	        "div",
-	        null,
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          "REPOS"
-	        ),
-	        _react2.default.createElement(
-	          "ul",
-	          { className: "list-group" },
-	          repos
-	        )
-	      );
-	    }
-	  }]);
-
-	  return Repos;
-	}(_react2.default.Component);
+	      })
+	    )
+	  );
+	};
 
 	Repos.propTypes = {
 	  username: _react2.default.PropTypes.string.isRequired,
@@ -24600,8 +24535,6 @@
 
 	"use strict";
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
@@ -24612,100 +24545,80 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var UserProfile = function (_React$Component) {
-	  _inherits(UserProfile, _React$Component);
-
-	  function UserProfile() {
-	    _classCallCheck(this, UserProfile);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(UserProfile).apply(this, arguments));
-	  }
-
-	  _createClass(UserProfile, [{
-	    key: "render",
-	    value: function render() {
-	      return _react2.default.createElement(
-	        "div",
-	        null,
-	        this.props.bio.avatar_url && _react2.default.createElement(
-	          "li",
-	          { className: "list-group-item" },
-	          _react2.default.createElement("img", { src: this.props.bio.avatar_url, className: "img-rounded img-responsive" })
-	        ),
-	        this.props.bio.name && _react2.default.createElement(
-	          "li",
-	          { className: "list-group-item" },
-	          "Name: ",
-	          this.props.bio.name
-	        ),
-	        this.props.bio.login && _react2.default.createElement(
-	          "li",
-	          { className: "list-group-item" },
-	          "Username: ",
-	          this.props.bio.login
-	        ),
-	        this.props.bio.email && _react2.default.createElement(
-	          "li",
-	          { className: "list-group-item" },
-	          "Email: ",
-	          _react2.default.createElement(
-	            "a",
-	            { href: "mailto:{this.props.bio.email}" },
-	            this.props.bio.email
-	          )
-	        ),
-	        this.props.bio.location && _react2.default.createElement(
-	          "li",
-	          { className: "list-group-item" },
-	          "Location: ",
-	          this.props.bio.location
-	        ),
-	        this.props.bio.company && _react2.default.createElement(
-	          "li",
-	          { className: "list-group-item" },
-	          "Company: ",
-	          this.props.bio.company
-	        ),
-	        this.props.bio.followers && _react2.default.createElement(
-	          "li",
-	          { className: "list-group-item" },
-	          "Followers: ",
-	          this.props.bio.followers
-	        ),
-	        this.props.bio.following && _react2.default.createElement(
-	          "li",
-	          { className: "list-group-item" },
-	          "Following: ",
-	          this.props.bio.following
-	        ),
-	        this.props.bio.public && _react2.default.createElement(
-	          "li",
-	          { className: "list-group-item" },
-	          "Public Repos: ",
-	          this.props.bio.public_repos
-	        ),
-	        this.props.bio.blog && _react2.default.createElement(
-	          "li",
-	          { className: "list-group-item" },
-	          "Blog: ",
-	          _react2.default.createElement(
-	            "a",
-	            { href: this.props.bio.blog },
-	            this.props.bio.blog
-	          )
-	        )
-	      );
-	    }
-	  }]);
-
-	  return UserProfile;
-	}(_react2.default.Component);
+	var UserProfile = function UserProfile(_ref) {
+	  var bio = _ref.bio;
+	  return _react2.default.createElement(
+	    "div",
+	    null,
+	    bio.avatar_url && _react2.default.createElement(
+	      "li",
+	      { className: "list-group-item" },
+	      _react2.default.createElement("img", { src: bio.avatar_url, className: "img-rounded img-responsive" })
+	    ),
+	    bio.name && _react2.default.createElement(
+	      "li",
+	      { className: "list-group-item" },
+	      "Name: ",
+	      bio.name
+	    ),
+	    bio.login && _react2.default.createElement(
+	      "li",
+	      { className: "list-group-item" },
+	      "Username: ",
+	      bio.login
+	    ),
+	    bio.email && _react2.default.createElement(
+	      "li",
+	      { className: "list-group-item" },
+	      "Email: ",
+	      _react2.default.createElement(
+	        "a",
+	        { href: "mailto:{bio.email}" },
+	        bio.email
+	      )
+	    ),
+	    bio.location && _react2.default.createElement(
+	      "li",
+	      { className: "list-group-item" },
+	      "Location: ",
+	      bio.location
+	    ),
+	    bio.company && _react2.default.createElement(
+	      "li",
+	      { className: "list-group-item" },
+	      "Company: ",
+	      bio.company
+	    ),
+	    bio.followers && _react2.default.createElement(
+	      "li",
+	      { className: "list-group-item" },
+	      "Followers: ",
+	      bio.followers
+	    ),
+	    bio.following && _react2.default.createElement(
+	      "li",
+	      { className: "list-group-item" },
+	      "Following: ",
+	      bio.following
+	    ),
+	    bio.public && _react2.default.createElement(
+	      "li",
+	      { className: "list-group-item" },
+	      "Public Repos: ",
+	      bio.public_repos
+	    ),
+	    bio.blog && _react2.default.createElement(
+	      "li",
+	      { className: "list-group-item" },
+	      "Blog: ",
+	      _react2.default.createElement(
+	        "a",
+	        { href: bio.blog },
+	        bio.blog
+	      )
+	    )
+	  );
+	};
 
 	UserProfile.propTypes = {
 	  username: _react2.default.PropTypes.string.isRequired,
@@ -24719,8 +24632,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -24740,41 +24651,23 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Notes = function (_React$Component) {
-	  _inherits(Notes, _React$Component);
-
-	  function Notes() {
-	    _classCallCheck(this, Notes);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Notes).apply(this, arguments));
-	  }
-
-	  _createClass(Notes, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'h3',
-	          null,
-	          'Notes for ',
-	          this.props.username
-	        ),
-	        _react2.default.createElement(_AddNote2.default, { username: this.props.username, addNote: this.props.addNote }),
-	        _react2.default.createElement(_NotesList2.default, { notes: this.props.notes })
-	      );
-	    }
-	  }]);
-
-	  return Notes;
-	}(_react2.default.Component);
+	var Notes = function Notes(_ref) {
+	  var username = _ref.username;
+	  var notes = _ref.notes;
+	  var addNote = _ref.addNote;
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'h3',
+	      null,
+	      'Notes for ',
+	      username
+	    ),
+	    _react2.default.createElement(_AddNote2.default, { username: username, addNote: addNote }),
+	    _react2.default.createElement(_NotesList2.default, { notes: notes })
+	  );
+	};
 
 	Notes.propTypes = {
 	  username: _react2.default.PropTypes.string.isRequired,
@@ -24790,8 +24683,6 @@
 
 	"use strict";
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
@@ -24802,42 +24693,24 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var NotesList = function (_React$Component) {
-	  _inherits(NotesList, _React$Component);
-
-	  function NotesList() {
-	    _classCallCheck(this, NotesList);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(NotesList).apply(this, arguments));
-	  }
-
-	  _createClass(NotesList, [{
-	    key: "render",
-	    value: function render() {
-	      var notes = this.props.notes; // should work too
-
+	var NotesList = function NotesList(_ref) {
+	  var notes = _ref.notes;
+	  return _react2.default.createElement(
+	    "ul",
+	    { className: "list-group" },
+	    notes.map(function (note, index) {
 	      return _react2.default.createElement(
-	        "ul",
-	        { className: "list-group" },
-	        notes.map(function (note, index) {
-	          return _react2.default.createElement(
-	            "li",
-	            { className: "list-group-item", key: index },
-	            note
-	          );
-	        })
+	        "li",
+	        { className: "list-group-item", key: index },
+	        note
 	      );
-	    }
-	  }]);
+	    })
+	  );
+	};
 
-	  return NotesList;
-	}(_react2.default.Component);
+	NotesList.PropTypes = {
+	  notes: _react2.default.PropTypes.array.isRequired
+	};
 
 	exports.default = NotesList;
 
